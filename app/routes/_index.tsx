@@ -17,8 +17,8 @@ export function headers({
 
 export default function Index() {
   return (
-    <main style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
-      <h1>We're Live!</h1>
+    <main className="container">
+      <h1 className="text-h1 font-headings">We're Live!</h1>
       <p>Testing dev env</p>
     </main>
   );
