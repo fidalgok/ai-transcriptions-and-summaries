@@ -70,3 +70,25 @@ netlify deploy --build
 # production deployment
 netlify deploy --build --prod
 ```
+
+## Packages of Note
+
+A quick comment on additional packages added to this app. These are above and beyond the default packages in Netlify's Remix Template.
+
+### Dependencies
+
+```sh
+npm i remix-utils
+```
+
+### Development Dependencies
+
+```sh
+npm i -D @total-typescript/ts-reset
+```
+
+- @total-typescript/ts-reset: This helps typescript with a few oddities that arise when checking for existence in various ways still gives you typescript errors
+
+## Styling
+
+Tailwindcss is the styling library of choice. Luckily, [Remix has native support for Tailwindcss](https://remix.run/docs/en/main/styling/tailwind). This starter has added a few things to make picking sensible sizing, spacing, and font styles a bit more friendly. You can check them out in the following files. The `tailwind.config.ts` has some extensions and overrides to the default Tailwindcss theme. There are [two custom fonts](https://github.blog/2022-12-02-introducing-mona-sans-and-hubot-sans/) in the `./public/fonts` directory. There are custom css variables and a few other base styles applied in the `app/styles/tailwind.css` file.
