@@ -15,6 +15,12 @@ export default {
     },
 
     extend: {
+      gridTemplateColumns: {
+        "editorial-full":
+          "[full-start] minmax(2rem,1fr) [standard-start] 3.75rem [narrow-start] minmax(1rem,67.5rem) [narrow-end] 3.75rem [standard-end] minmax(2rem,1fr) [full-end];",
+        "editorial-mobile":
+          "[full-start] minmax(2rem,1fr) [standard-start] 0 [narrow-start] minmax(1rem,67.5rem) [narrow-end] 0 [standard-end] minmax(2rem,1fr) [full-end]",
+      },
       colors: {
         border: "hsl(var(--border))",
         "oyster-pink": {
