@@ -1,4 +1,5 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction, LinksFunction } from "@remix-run/node";
+import { cssBundleHref } from "@remix-run/css-bundle";
 import {
   Links,
   LiveReload,
@@ -7,12 +8,23 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import tailwindStylesheetUrl from "./styles/tailwind.css";
 
-export const meta: MetaFunction = () => [{
-  charset: "utf-8",
-  title: "New Remix App",
-  viewport: "width=device-width,initial-scale=1",
-}];
+export const meta: MetaFunction = () => [
+  {
+    charset: "utf-8",
+    title: "AI Audio Transcribe",
+    viewport: "width=device-width,initial-scale=1",
+  },
+];
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "stylesheet", href: tailwindStylesheetUrl },
+
+    cssBundleHref ? { rel: "stylesheet", href: cssBundleHref } : null,
+  ].filter(Boolean);
+};
 
 export default function App() {
   return (
@@ -21,7 +33,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="font-sans">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
