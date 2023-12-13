@@ -24,7 +24,6 @@
   :root {
     --font-sans: "Mona Sans";
     --font-headings: "Hubot Sans";
-    /* --font-mono: here if you got it... */
 
     /* prefixed with foreground because it should look good on the background */
     --foreground-destructive: 345 82.7% 40.8%;
