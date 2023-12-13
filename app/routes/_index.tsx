@@ -1,25 +1,23 @@
-export function headers({
-  loaderHeaders,
-  parentHeaders,
-}: {
-  loaderHeaders: Headers;
-  parentHeaders: Headers;
-}) {
-  console.log(
-    "This is an example of how to set caching headers for a route, feel free to change the value of 60 seconds or remove the header"
-  );
-  return {
-    // This is an example of how to set caching headers for a route
-    // For more info on headers in Remix, see: https://remix.run/docs/en/v1/route/headers
-    "Cache-Control": "public, max-age=60, s-maxage=60",
-  };
-}
+import { dbHealthCheck } from "~/models/healthcheck.server";
+import { json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
+
+export const loader = async () => {
+  let healthCheck = await dbHealthCheck();
+  if (!healthCheck) return json({ dbStatus: "down" });
+  return json({ dbStatus: healthCheck.message });
+};
 
 export default function Index() {
+  let data = useLoaderData<typeof loader>();
+  data.dbStatus === "down"
+    ? console.log("db is down")
+    : console.log("db is up");
   return (
     <main className="container">
       <h1 className="text-h1 font-headings">We're Live!</h1>
       <p>Testing dev env</p>
+      <p>DB Status: {data.dbStatus}</p>
     </main>
   );
 }
