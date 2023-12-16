@@ -34,7 +34,7 @@ export default function App() {
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Links />
       </head>
-      <body className="font-sans">
+      <body className="font-sans h-full">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
