@@ -13,8 +13,8 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@netlify/functions": "^2.0.0",
-    "@netlify/remix-adapter": "^2.0.0",
+    "@netlify/functions": "^2.4.1",
+    "@netlify/remix-adapter": "^2.2.0",
     "@prisma/client": "^5.7.0",
     "@remix-run/css-bundle": "^2.3.1",
     "@remix-run/react": "^2.3.1",
